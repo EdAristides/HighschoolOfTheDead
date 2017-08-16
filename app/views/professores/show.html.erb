@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Siape:</strong>
+  <%= @professore.siape %>
+</p>
+
+<p>
+  <strong>Cpf:</strong>
+  <%= @professore.cpf %>
+</p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @professore.nome %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @professore.email %>
+</p>
+
+<p>
+  <strong>Telefone:</strong>
+  <%= @professore.telefone %>
+</p>
+
+<p>
+  <strong>Dtnascimento:</strong>
+  <%= @professore.dtnascimento %>
+</p>
+
+<%= link_to 'Edit', edit_professore_path(@professore) %> |
+<%= link_to 'Back', professores_path %>
