@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'paginas/index'
+
   resources :professores
   resources :alunos
   # The priority is based upon order of creation: first created -> highest priority.

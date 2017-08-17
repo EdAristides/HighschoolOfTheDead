@@ -24,6 +24,11 @@
     <%= f.text_field :nome %>
   </div>
   <div class="field">
+    <%= f.label :sexo %><br>
+    <%= f.radio_button :sexo, 'M', :checked => true %> Masculino
+    <%= f.radio_button :sexo, 'F' %> Feminino
+  </div>
+  <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
@@ -34,6 +39,12 @@
   <div class="field">
     <%= f.label :dtnascimento %><br>
     <%= f.date_select :dtnascimento %>
+  </div>
+  <div>
+    <%= f.label :foto %>
+    <%= image_tag @professore.foto_url, class: 'foto' if @professore.foto? %>
+    <%= f.file_field :foto, label: 'Foto' , input_html: {accept: ('application/jpg') } %>
+    <br/>
   </div>
   <div class="actions">
     <%= f.submit %>

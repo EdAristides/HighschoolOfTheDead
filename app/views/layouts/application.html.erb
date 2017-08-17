@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HighschoolOfTheDead</title>
+  <title>Highschool Of The Dead</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+	<%= image_tag 'logo.png', class: 'logo' %>
+
+	<hr/>
+	<%= link_to 'Início', paginas_index_path %>
+	<%= link_to 'Alunos', alunos_path %>
+	<%= link_to 'Professores', professores_path %>
+	<hr/>
+
+	<%= yield %>
 
 </body>
 </html>

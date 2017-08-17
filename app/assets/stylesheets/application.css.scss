@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+	background: image-url('fundo.jpg');
+}
+
+.logo {
+	width: 320px;
+	height: 180px;
+}
