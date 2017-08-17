@@ -10,13 +10,20 @@
 
 	<%= image_tag 'logo.png', class: 'logo' %>
 
-	<hr/>
-	<%= link_to 'Início', paginas_index_path %>
-	<%= link_to 'Alunos', alunos_path %>
-	<%= link_to 'Professores', professores_path %>
-	<hr/>
-
-	<%= yield %>
-
+	<%= render "layouts/navbar" %>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<%= render "layouts/latbar" %>
+			</div>
+			<div class="col-md-9">
+				<div class="panel-body">
+					<%= yield %>
+					<p class="notice"><%= notice %></p>
+					<p class="alert"><%= alert %></p>
+				</div>
+			</div>
+		</div> <!-- row -->
+	</div> <!-- container -->
 </body>
 </html>

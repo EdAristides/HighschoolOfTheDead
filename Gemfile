@@ -45,4 +45,7 @@ group :development do
   gem 'spring'
 end
 
+gem 'bootstrap-sass'
+gem 'bootstrap-datepicker-rails'
+gem 'jquery-inputmask-rails'
 gem 'carrierwave'
