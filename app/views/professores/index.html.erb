@@ -11,7 +11,6 @@
       <th>Email</th>
       <th>Telefone</th>
       <th>Dtnascimento</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -24,9 +23,10 @@
         <td><%= professore.email %></td>
         <td><%= professore.telefone %></td>
         <td><%= professore.dtnascimento %></td>
-        <td><%= link_to 'Show', professore %></td>
-        <td><%= link_to 'Edit', edit_professore_path(professore) %></td>
-        <td><%= link_to 'Destroy', professore, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to ' ', edit_professore_path(professore), class: "glyphicon glyphicon-pencil" %>
+          <%= link_to ' ', professore, method: :delete, data: { confirm: 'Are you sure?' } , class: "glyphicon glyphicon-trash" %>
+        </td>
       </tr>
     <% end %>
   </tbody>

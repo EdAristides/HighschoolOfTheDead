@@ -38,12 +38,13 @@
   </div>
   <div class="field">
     <%= f.label :dtmatricula %><br>
-    <%= f.date_select :dtmatricula %>
+    <%= f.text_field :dtmatricula , class: 'datepicker' %>
   </div>
   <div class="field">
     <%= f.label :dtnascimento %><br>
-    <%= f.date_select :dtnascimento %>
+    <%= f.text_field :dtnascimento , class: 'datepicker' %>
   </div>
+  <div>
   <div>
     <%= f.label :foto %>
     <%= image_tag @aluno.foto_url, class: 'foto' if @aluno.foto? %>
@@ -51,6 +52,14 @@
     <br/>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Salvar', :class => 'btn btn-primary' %>
+    <%= link_to ' Voltar', alunos_path , class: "btn btn-default " %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.datepicker').datepicker({format: 'yyyy-mm-dd'});
+    $('#matricula').inputmask("999999999999");
+  });
+</script>
