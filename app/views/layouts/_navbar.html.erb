@@ -7,6 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
       </button>
       <ul class="nav navbar-pills navbar-left">
          <li><%= image_tag "logo-small.png", :height => '70px' %></li>
@@ -15,10 +16,22 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav nav-pills navbar-left">
-        <li><%= link_to ' Início', paginas_index_path %></li>   
-        <li><%= link_to ' Alunos', alunos_path %></li> 
-        <li><%= link_to ' Professores', professores_path %></li> 
+        <li style="font-size: 20px;"><%= link_to ' Início', paginas_index_path %></li>   
+        <li style="font-size: 20px;"><%= link_to ' Alunos', alunos_path %></li> 
+        <li style="font-size: 20px;"><%= link_to ' Professores', professores_path %></li> 
+        <li style="font-size: 20px;"><%= link_to ' Turmas', turmas_path %></li> 
       </ul>
+      <% if usuario_signed_in? %>
+        <ul class="nav nav-pills navbar-right">
+          <li><%= link_to 'Bem vindo:'+current_usuario.email, edit_usuario_registration_path%></li>
+          <li><%= link_to "Logout", destroy_usuario_session_path, method: :delete  %></li>
+        </ul>
+      <% else %>
+        <ul class="nav nav-pills navbar-right">
+          <li><%= link_to "Cadastre-se", new_usuario_registration_path, class: 'navbar-link' %>  </li>
+          <li><%= link_to "Login", new_usuario_session_path, :class => 'navbar-link'  %></li>
+        </ul>
+      <% end %>
     </div>
   </div><!-- /.container-fluid -->
 </nav>

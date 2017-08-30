@@ -11,44 +11,53 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :siape %><br>
-    <%= f.text_field :siape %>
-  </div>
-  <div class="field">
-    <%= f.label :cpf %><br>
-    <%= f.text_field :cpf %>
-  </div>
-  <div class="field">
-    <%= f.label :nome %><br>
-    <%= f.text_field :nome %>
-  </div>
-  <div class="field">
-    <%= f.label :sexo %><br>
-    <%= f.radio_button :sexo, 'M', :checked => true %> Masculino
-    <%= f.radio_button :sexo, 'F' %> Feminino
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :telefone %><br>
-    <%= f.text_field :telefone %>
-  </div>
-  <div class="field">
-    <%= f.label :dtnascimento %><br>
-    <%= f.text_field :dtnascimento , class: 'datepicker' %>
-  </div>
-  <div>
-    <%= f.label :foto %>
-    <%= image_tag @professore.foto_url, class: 'foto' if @professore.foto? %>
-    <%= f.file_field :foto, label: 'Foto' , input_html: {accept: ('application/jpg') } %>
-    <br/>
-  </div>
-  <div class="actions">
-    <%= f.submit 'Salvar', :class => 'btn btn-primary' %>
-    <%= link_to ' Voltar', professores_path , class: "btn btn-default " %>
+  <div id="formulario">
+    <div class="field">
+      <!--<%= f.label :siape %>-->
+      Siape<br>
+      <%= f.text_field :siape %>
+    </div>
+    <div class="field">
+      <!--<%= f.label :cpf %>-->
+      CPF<br>
+      <%= f.text_field :cpf %>
+    </div>
+    <div class="field">
+      <!--<%= f.label :nome %>-->
+      Nome<br>
+      <%= f.text_field :nome %>
+    </div>
+    <div class="field">
+      <!--<%= f.label :sexo %>-->
+      Sexo<br>
+      <%= f.radio_button :sexo, 'M', :checked => true %> Masculino
+      <%= f.radio_button :sexo, 'F' %> Feminino
+    </div>
+    <div class="field">
+      <!--<%= f.label :email %>-->
+      E-mail<br>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <!--<%= f.label :telefone %>-->
+      Telefone<br>
+      <%= f.text_field :telefone %>
+    </div>
+    <div class="field">
+      <!--<%= f.label :dtnascimento %>-->
+      Data de Nascimento<br>
+      <%= f.text_field :dtnascimento , class: 'datepicker' %>
+    </div>
+    <div>
+      <%= f.label :foto %>
+      <%= image_tag @professore.foto_url, class: 'foto' if @professore.foto? %>
+      <%= f.file_field :foto, label: 'Foto' , input_html: {accept: ('application/jpg') } %>
+      <br/>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Salvar', :class => 'btn btn-primary' %>
+      <%= link_to 'Voltar', professores_path , class: "btn btn-default " %>
+    </div>
   </div>
 <% end %>
 

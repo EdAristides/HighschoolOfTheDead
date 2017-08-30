@@ -1,16 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Professores</h1>
+<h1>Professores</h1>
 
 <table>
   <thead>
     <tr>
       <th>Siape</th>
-      <th>Cpf</th>
+      <th>CPF</th>
       <th>Nome</th>
-      <th>Email</th>
+      <th>E-mail</th>
       <th>Telefone</th>
-      <th>Dtnascimento</th>
+      <th>Data de Nascimento</th>
     </tr>
   </thead>
 
@@ -24,7 +24,7 @@
         <td><%= professore.telefone %></td>
         <td><%= professore.dtnascimento %></td>
         <td>
-          <%= link_to ' ', edit_professore_path(professore), class: "glyphicon glyphicon-pencil" %>
+          <%= link_to ' ', edit_professor_path(professore), class: "glyphicon glyphicon-pencil" %>
           <%= link_to ' ', professore, method: :delete, data: { confirm: 'Are you sure?' } , class: "glyphicon glyphicon-trash" %>
         </td>
       </tr>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Professore', new_professore_path %>
+<%= link_to 'Novo Professor', new_professor_path %>

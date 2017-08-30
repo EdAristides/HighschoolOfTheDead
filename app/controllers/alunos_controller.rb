@@ -4,7 +4,26 @@ class AlunosController < ApplicationController
   # GET /alunos
   # GET /alunos.json
   def index
-    @alunos = Aluno.all
+    # buscar o sexo
+   
+    @psexo = params[:psexo]
+    # buscar o nome
+    @pnome = params[:pnome]
+
+    filtro = "1=1"
+    
+    if  @psexo ==  "M"
+      filtro = filtro + " and sexo = 'M' "
+    end
+    if  @psexo ==  "F"
+      filtro = filtro + " and sexo = 'F' "
+    end
+
+    if not(@pnome.nil?)
+       filtro = filtro + " and nome like '%"+@pnome+"%'"
+    end
+
+    @alunos = Aluno.where(filtro).order("nome").paginate(page: params[:page], per_page: 3)
   end
 
   # GET /alunos/1
@@ -28,7 +47,7 @@ class AlunosController < ApplicationController
 
     respond_to do |format|
       if @aluno.save
-        format.html { redirect_to @aluno, notice: 'Aluno was successfully created.' }
+        format.html { redirect_to @aluno, notice: 'Registro do aluno criado com sucesso.' }
         format.json { render :show, status: :created, location: @aluno }
       else
         format.html { render :new }
@@ -42,7 +61,7 @@ class AlunosController < ApplicationController
   def update
     respond_to do |format|
       if @aluno.update(aluno_params)
-        format.html { redirect_to @aluno, notice: 'Aluno was successfully updated.' }
+        format.html { redirect_to @aluno, notice: 'Registro do aluno atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @aluno }
       else
         format.html { render :edit }
@@ -56,7 +75,7 @@ class AlunosController < ApplicationController
   def destroy
     @aluno.destroy
     respond_to do |format|
-      format.html { redirect_to alunos_url, notice: 'Aluno was successfully destroyed.' }
+      format.html { redirect_to alunos_url, notice: 'Registro do aluno deletado com sucesso.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +88,6 @@ class AlunosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def aluno_params
-      params.require(:aluno).permit(:matricula, :cpf, :nome, :email, :telefone, :dtmatricula, :dtnascimento, :sexo, :foto)
+      params.require(:aluno).permit(:matricula, :cpf, :nome, :email, :telefone, :dtmatricula, :dtnascimento, :sexo, :foto, :turma_id)
     end
 end

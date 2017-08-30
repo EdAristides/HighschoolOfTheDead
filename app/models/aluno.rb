@@ -13,4 +13,6 @@ class Aluno < ActiveRecord::Base
 		"Muito pequeno ou muito grande, mÌnimo de 3 e máximo de 50 caracteres"
 
 	mount_uploader :foto, FotoAlunoUploader
+
+	belongs_to :turma
 end

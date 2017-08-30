@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Matricula:</strong>
+  <strong>Matrícula:</strong>
   <%= @aluno.matricula %>
 </p>
 
 <p>
-  <strong>Cpf:</strong>
+  <strong>CPF:</strong>
   <%= @aluno.cpf %>
 </p>
 
@@ -16,7 +16,7 @@
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong>E-mail:</strong>
   <%= @aluno.email %>
 </p>
 
@@ -26,14 +26,19 @@
 </p>
 
 <p>
-  <strong>Dtmatricula:</strong>
+  <strong>Data da Matrícula:</strong>
   <%= @aluno.dtmatricula %>
 </p>
 
 <p>
-  <strong>Dtnascimento:</strong>
+  <strong>Data de Nascimento:</strong>
   <%= @aluno.dtnascimento %>
 </p>
 
-<%= link_to 'Edit', edit_aluno_path(@aluno) %> |
-<%= link_to 'Back', alunos_path %>
+<p>
+  <strong>Turma:</strong>
+  <%= @aluno.turma_id %>
+</p>
+
+<%= link_to 'Editar', edit_aluno_path(@aluno) %> |
+<%= link_to 'Voltar', alunos_path %>

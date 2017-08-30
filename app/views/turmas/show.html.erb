@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Código:</strong>
+  <%= @turma.codigo %>
+</p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @turma.nome %>
+</p>
+
+<%= link_to 'Editar', edit_turma_path(@turma) %> |
+<%= link_to 'Voltar', turmas_path %>

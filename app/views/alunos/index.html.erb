@@ -1,17 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Alunos</h1>
+<h1>Alunos</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Matricula</th>
-      <th>Cpf</th>
+      <th>Matrícula</th>
+      <th>CPF</th>
       <th>Nome</th>
-      <th>Email</th>
+      <th>E-mail</th>
       <th>Telefone</th>
-      <th>Dtmatricula</th>
-      <th>Dtnascimento</th>
+      <th>Data da Matrícula</th>
+      <th>Data de Nascimento</th>
+      <th>Turma</th>
     </tr>
   </thead>
 
@@ -25,6 +26,7 @@
         <td><%= aluno.telefone %></td>
         <td><%= aluno.dtmatricula %></td>
         <td><%= aluno.dtnascimento %></td>
+        <td><%= aluno.turma.nome %></td>
         <td>
           <%= link_to ' ', edit_aluno_path(aluno), class: "glyphicon glyphicon-pencil" %>
           <%= link_to ' ', aluno, method: :delete, data: { confirm: 'Are you sure?' } , class: "glyphicon glyphicon-trash" %>
@@ -36,4 +38,6 @@
 
 <br>
 
-<%= link_to 'New Aluno', new_aluno_path %>
+<%= will_paginate @alunos, previous_label: "Anterior", next_label: "Próxima" %>
+<br>
+<%= link_to 'Novo Aluno', new_aluno_path %>

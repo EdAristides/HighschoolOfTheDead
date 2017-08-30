@@ -1,0 +1,8 @@
+<%= form_tag(alunos_path, method: "get") do %>
+  <%= label_tag(:pnome, "Nome:") %>
+  <%= text_field_tag(:pnome,  @pnome) %>
+  <br/>
+  <%= label_tag(:psexo, "Sexo:") %>
+  <%= select_tag :psexo, options_for_select([['Ambos','A'],['Masculino','M'],['Feminino','F']],selected:@psexo)  %>
+  <%= submit_tag 'Filtrar' %>
+<% end %>
