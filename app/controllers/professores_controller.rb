@@ -4,7 +4,29 @@ class ProfessoresController < ApplicationController
   # GET /professores
   # GET /professores.json
   def index
-    @professores = Professore.all
+    # buscar o nome
+    @pnome = params[:pnome]
+
+    filtro = "1=1"
+
+    if not(@pnome.nil?)
+       filtro = filtro + " and nome like '%"+@pnome+"%'"
+    end
+
+    @professores = Professore.where(filtro).order("nome").paginate(page: params[:page], per_page: 3)
+  end
+
+  def listar
+    @professores = Professore.all.paginate(page: params[:page], per_page: 10)
+    
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ProfessoresReport.new(@professores)
+        send_data pdf.render, filename: 'ProfessoresListagem.pdf', :width => pdf.bounds.width,
+        type: 'application/pdf', disposition: :inline, :page_size => "A4", :page_layout => :portrait
+      end
+    end
   end
 
   # GET /professores/1

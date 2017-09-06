@@ -5,10 +5,11 @@ class AlunosController < ApplicationController
   # GET /alunos.json
   def index
     # buscar o sexo
-   
     @psexo = params[:psexo]
     # buscar o nome
     @pnome = params[:pnome]
+    # Listar por turma
+    @pturma = params[:pturma]
 
     filtro = "1=1"
     
@@ -21,6 +22,18 @@ class AlunosController < ApplicationController
 
     if not(@pnome.nil?)
        filtro = filtro + " and nome like '%"+@pnome+"%'"
+    end
+
+    @turmas = Turma.all
+
+    @turmas.each do |turma|
+      if turma.nome == @pturma
+        @busca = turma.id
+      end
+    end
+
+    if not(@pturma.nil?)
+       filtro = filtro + " and turma_id like '%"+@busca.to_s+"%'"
     end
 
     @alunos = Aluno.where(filtro).order("nome").paginate(page: params[:page], per_page: 3)

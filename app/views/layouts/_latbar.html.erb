@@ -20,6 +20,9 @@
       <li style="font-size: 20px;">
         <%= link_to ' Turmas', turmas_path ,class: "glyphicon glyphicon-th-list"%>
       </li>
+      <li style="font-size: 20px;">
+        <%= link_to ' Relatorio ', listar_professores_path(@professore, 'pdf'), target: '_blank', class: "glyphicon glyphicon-print" %>
+      </li>
 		</ul>
 	</div>
 </div>

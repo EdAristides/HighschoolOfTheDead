@@ -14,5 +14,5 @@ class Aluno < ActiveRecord::Base
 
 	mount_uploader :foto, FotoAlunoUploader
 
-	belongs_to :turma
+	belongs_to :turma, required: true
 end

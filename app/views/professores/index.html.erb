@@ -2,6 +2,10 @@
 
 <h1>Professores</h1>
 
+<hr/>
+    <%= render 'formbusca' %>
+<hr/>
+
 <table>
   <thead>
     <tr>
@@ -31,7 +35,7 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
-
-<%= link_to 'Novo Professor', new_professor_path %>
+<%= will_paginate @professores, previous_label: "Anterior", next_label: "Próxima" %>
+<br>
+<%= link_to 'Novo Professor', new_professor_path, :class => 'btn btn-default' %>

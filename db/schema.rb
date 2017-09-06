@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170830233547) do
+ActiveRecord::Schema.define(version: 20170906023945) do
 
   create_table "alunos", force: :cascade do |t|
     t.string   "matricula"

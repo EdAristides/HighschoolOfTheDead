@@ -4,7 +4,7 @@ class TurmasController < ApplicationController
   # GET /turmas
   # GET /turmas.json
   def index
-    @turmas = Turma.all
+    @turmas = Turma.all.order("nome").paginate(page: params[:page], per_page: 3)
   end
 
   # GET /turmas/1
@@ -69,6 +69,6 @@ class TurmasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def turma_params
-      params.require(:turma).permit(:codigo, :nome)
+      params.require(:turma).permit(:codigo, :nome, :professor_id)
     end
 end

@@ -2,6 +2,9 @@
   <%= label_tag(:pnome, "Nome:") %>
   <%= text_field_tag(:pnome,  @pnome) %>
   <br/>
+  <%= label_tag(:pturma, "Turma:") %>
+  <%= text_field_tag(:pturma,  @pturma) %>
+  <br/>
   <%= label_tag(:psexo, "Sexo:") %>
   <%= select_tag :psexo, options_for_select([['Ambos','A'],['Masculino','M'],['Feminino','F']],selected:@psexo)  %>
   <%= submit_tag 'Filtrar' %>

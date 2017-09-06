@@ -37,8 +37,8 @@
 
 <p>
   <strong>Turma:</strong>
-  <%= @aluno.turma_id %>
+  <%= @aluno.turma.nome %>
 </p>
 
-<%= link_to 'Editar', edit_aluno_path(@aluno) %> |
-<%= link_to 'Voltar', alunos_path %>
+<%= link_to 'Editar', edit_aluno_path(@aluno), :class => 'btn btn-default' %> 
+<%= link_to 'Voltar', alunos_path, :class => 'btn btn-default' %>

@@ -2,6 +2,10 @@
 
 <h1>Alunos</h1>
 
+<hr/>
+    <%= render 'formbusca' %>
+<hr/>
+
 <table>
   <thead>
     <tr>
@@ -35,9 +39,7 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
-
 <%= will_paginate @alunos, previous_label: "Anterior", next_label: "Próxima" %>
 <br>
-<%= link_to 'Novo Aluno', new_aluno_path %>
+<%= link_to 'Novo Aluno', new_aluno_path, :class => 'btn btn-default' %>

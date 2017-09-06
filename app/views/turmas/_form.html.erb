@@ -23,7 +23,8 @@
       <%= f.text_field :nome %>
     </div>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit 'Salvar', :class => 'btn btn-primary' %>
+      <%= link_to ' Voltar', turmas_path , class: "btn btn-default " %>
     </div>
   </div>
 <% end %>
